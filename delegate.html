@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegate</title>
+</head>
+<body>
+    <section>
+        <h2>Fruit Item Event Delegate</h2>
+        <ul id="fruits-container">
+            <li class="item">Apple</li>
+            <li class="item">Banana</li>
+            <li class="item">Jackfruit</li>
+            <li class="item">Mango</li>
+            <li class="item">Grape</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Add New Fruits Item</h2>
+        <input type="text" id="item-field">
+        <button id="add-fruit">Add Fruit</button>
+    </section>  
+    
+    <!-- js -->
+    <script>
+     /*    const items = document.getElementsByClassName('item');
+        for(const item of items){
+            item.addEventListener('click', function(event){
+                event.target.parentNode.removeChild(event.target);
+            })
+        } */
+
+        document.getElementById('fruits-container').addEventListener('click', function(event){
+            event.target.parentNode.removeChild(event.target);
+        })
+
+        // add new item
+        document.getElementById('add-fruit').addEventListener('click', function(){        
+        const fruitsContainer = document.getElementById('fruits-container');
+        const itemInput = document.getElementById('item-field');
+        const inputText = itemInput.value;
+        const li = document.createElement('li');
+        
+        li.innerText = inputText;
+        fruitsContainer.appendChild(li);
+    })
+    </script>
+</body>
+</html>
